@@ -17,7 +17,7 @@ export class CategoryService extends BaseComponent {
     super();
   }
 
-  create(category: Category): Observable<any> {
+  create(category: any): Observable<any> {
     return this.httpClient.post<Category>(`${this.APIZCategory}`, category);
   }
 
@@ -30,7 +30,7 @@ export class CategoryService extends BaseComponent {
     return this.httpClient.get<any>(`${this.APIZCategory}/${Term}`);
   }
 
-  update(IdCategory: string, category: Category): Observable<any> {
+  update(IdCategory: string | undefined, category: Category): Observable<any> {
     return this.httpClient.patch<any>(`${this.APIZCategory}/${IdCategory}`, category);
   }
 

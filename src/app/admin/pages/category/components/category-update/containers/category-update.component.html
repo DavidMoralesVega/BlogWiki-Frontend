@@ -1,0 +1,36 @@
+<section class="container">
+
+  <h2 class="mb-4 mt-2 title-section">Editar categoria</h2>
+
+  <form [formGroup]="formAdd" (ngSubmit)="addData()" novalidate="novalidate" autocomplete="off">
+    <div class="row">
+      <div class="z-card">
+
+        <mat-form-field class="col-12 mb-2" appearance="outline">
+          <mat-label>Descripción</mat-label>
+          <input matInput formControlName="CDescription" maxlength="256" placeholder="Nombre" />
+          <mat-error *ngIf="
+              formAdd.controls['CDescription'].invalid &&
+              (formAdd.controls['CDescription'].dirty ||
+                formAdd.controls['CDescription'].touched)
+            ">
+            <span *ngIf="formAdd.controls['CDescription'].errors?.['required']">
+              <i class="fas fa-exclamation-circle mr-1"></i>
+              La descripción es requerida.
+            </span>
+          </mat-error>
+        </mat-form-field>
+
+
+      </div>
+
+      <div class="col-12 text-end mt-5">
+        <button class="btn btn-reserve btn-primary btn-lg btn-block"
+          [disabled]="this.formAdd.invalid">
+          Crear
+        </button>
+
+      </div>
+    </div>
+  </form>
+</section>

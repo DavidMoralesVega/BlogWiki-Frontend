@@ -40,8 +40,8 @@ export class LoginComponent implements OnInit {
     //   .subscribe((ui: any) => (this.isLoading = ui.loading));
 
     this.formLogin = new FormGroup({
-      UEmail: new FormControl('ruben@gmail.com', [Validators.required, Validators.email]),
-      UPassword: new FormControl('Ruben1234', [
+      UEmail: new FormControl('luzasmartinez@gmail.com', [Validators.required, Validators.email]),
+      UPassword: new FormControl('Ru387@Luc1234', [
         Validators.required,
         Validators.minLength(8),
       ]),

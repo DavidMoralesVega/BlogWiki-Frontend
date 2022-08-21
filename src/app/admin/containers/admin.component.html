@@ -6,7 +6,6 @@
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon fontIcon="menu" *ngIf="!snav.opened"></mat-icon>
       <mat-icon fontIcon="menu_open" *ngIf="snav.opened"></mat-icon>
-
     </button>
 
     <h5 class="example-app-name">{{ User?.UFullName }}</h5>
@@ -29,19 +28,15 @@
         <mat-nav-list [disableRipple]="true">
           <a (click)="snav.toggle()" mat-list-item routerLinkActive="mat-list-item-active"
             routerLink="{{ optionSidenav.Route }}" *ngFor="let optionSidenav of OptionSidenav">
-
             <mat-icon>{{ optionSidenav.Icon }}</mat-icon>
-
-
             <h6>{{ optionSidenav.Label }}</h6>
-
           </a>
 
           <footer class="footer-admin">
             <p class="f-bold">
             </p>
             <p class="f-medium">
-              2022
+              <!-- 2022 -->
             </p>
           </footer>
         </mat-nav-list>

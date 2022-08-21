@@ -3,7 +3,7 @@ import { Post } from './';
 export class Category {
   public IdCategory?: string;
   public CDescription: string;
-  public CPhoto: string;
+  public CPhoto?: string;
   public CSlug?: string;
   public Post?: Post[];
 
@@ -19,7 +19,12 @@ export class Category {
 interface CategoryInterface {
   IdCategory?: string;
   CDescription: string;
-  CPhoto: string;
+  CPhoto?: string;
   CSlug?: string;
   Post?: Post[];
 }
+
+export interface DialogCategory {
+  category: Category;
+}
+

@@ -36,8 +36,8 @@ export const OptionSidenavClient: any = [
 
 export const OptionSidenavAdmin: any = [
   { Icon: 'group', Route: 'usuario', Label: 'Usuarios' },
-  { Icon: 'face_2', Route: 'beneficiario', Label: 'Beneficiarios' },
-  { Icon: 'video_camera_front', Route: 'capacitacion', Label: 'Capacitaciones' },
+  { Icon: 'bookmarks', Route: 'categoria', Label: 'Categorias' },
+  { Icon: 'newspaper', Route: 'noticia', Label: 'Noticias' },
 ];
 
 export const ListCountries = [

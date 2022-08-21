@@ -20,5 +20,11 @@ export const AdminRoutes: Routes = [
     .then(m => m.CategoryModule),
   },
 
+  {
+    path: 'noticia',
+    loadChildren: () => import('./pages/post/post.module')
+    .then(m => m.PostModule),
+  },
+
 ];
 

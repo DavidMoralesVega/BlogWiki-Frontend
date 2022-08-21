@@ -1,0 +1,12 @@
+<section class="container">
+
+  <h2 class="mb-4 mt-2 title-section">Eliminar categoria</h2>
+
+  <div class="note note-danger">
+    <h6 class="m-0">¿Esta seguro de eliminar la categoria: {{ GetCategory?.CDescription }}?</h6>
+  </div>
+
+  <button (click)="delete()" class="btn btn-reserve btn-danger btn-lg btn-block mt-5">
+    Eliminar
+  </button>
+</section>

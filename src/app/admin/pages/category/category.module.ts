@@ -9,6 +9,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { CategoryAddModule } from './components/category-add/category-add.module';
+import { CategoryDeleteModule } from './components/category-delete/category-delete.module';
+import { CategoryUpdateModule } from './components/category-update/category-update.module';
 
 
 @NgModule({
@@ -23,7 +27,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatPaginatorModule,
     MatInputModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule,
+    CategoryAddModule,
+    CategoryUpdateModule,
+    CategoryDeleteModule
   ],
   providers: [CategoryService]
 })
