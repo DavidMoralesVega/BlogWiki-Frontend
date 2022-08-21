@@ -1,0 +1,65 @@
+<section class="container">
+  <form [formGroup]="formLogin" (ngSubmit)="login()" novalidate="novalidate" autocomplete="off">
+    <div class="text-center pt-3 mt-4">
+
+      <img width="300" src="assets/brand/logo-blue.png" class="img-fluid z-depth-1 mt-5 mb-5" alt="Logo" />
+
+      <h1 class="g-title">Bienvenido</h1>
+      <h4 class="g-subtitle">Ingresa los datos de tu cuenta</h4>
+    </div>
+    <div class="mt-4 pb-1">
+      <mat-form-field class="col-12 mb-2" appearance="outline">
+        <mat-label>Correo electrónico (s)</mat-label>
+        <input (keyup)="onBlurMethod($event)" matInput formControlName="UEmail" maxlength="256"
+          placeholder="Correo electrónico" />
+        <mat-error *ngIf="
+            formLogin.controls['UEmail'].invalid &&
+            (formLogin.controls['UEmail'].dirty ||
+              formLogin.controls['UEmail'].touched)
+          ">
+          <span *ngIf="formLogin.controls['UEmail'].errors?.['required']">
+            <i class="fas fa-exclamation-circle mr-1"></i>
+            El correo electrónico es requerido.
+          </span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-12 mb-2" appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input [type]="!eye ? 'password' : 'text'" matInput formControlName="UPassword" maxlength="256"
+          placeholder="Contraseña(s)" />
+
+        <mat-icon *ngIf="eye" matSuffix (click)="changeViewPassword(false)">visibility</mat-icon>
+        <mat-icon *ngIf="!eye" matSuffix (click)="changeViewPassword(true)">visibility_off</mat-icon>
+
+        <mat-error *ngIf="
+            formLogin.controls['UPassword'].invalid &&
+            (formLogin.controls['UPassword'].dirty ||
+              formLogin.controls['UPassword'].touched)
+          ">
+          <span *ngIf="formLogin.controls['UPassword'].errors?.['required']">
+            <i class="fas fa-exclamation-circle mr-1"></i>
+            El contraseña es requerida.
+          </span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="text-center container-button-init">
+      <button [disabled]="formLogin.invalid" *ngIf="!isLoading" class="btn btn-reserve btn-primary btn-lg">
+        Ingresar
+      </button>
+      <button [disabled]="formLogin.invalid" *ngIf="isLoading" class="btn btn-reserve btn-primary btn-lg">
+        Ingresando...
+      </button>
+    </div>
+  </form>
+
+  <footer>
+    <p class="f-bold">
+    </p>
+    <p class="f-medium">
+       2022
+    </p>
+  </footer>
+</section>

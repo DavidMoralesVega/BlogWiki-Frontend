@@ -1,0 +1,29 @@
+<header>
+
+  <nav class="navbar-tab fixed-top navbar-light white">
+
+    <div class="container mb-3">
+      <div class="h-100 d-flex flex-row justify-content-between align-items-center">
+        <h3 class="align-self-center me-auto">
+          <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <img src="https://zephyrus.agency/img/brand/Logo-Letter.svg" height="30" alt="MDB Logo" loading="lazy" />
+          </a>
+        </h3>
+        <a [routerLink]="['/iniciar-sesion']" class="btn btn-primary btn-sm btn-rounded">
+          Iniciar sesión
+        </a>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+
+
+      <nav mat-tab-nav-bar [backgroundColor]="background" mat-align-tabs="center">
+        <a mat-tab-link (click)="navigateHome('inicio')">Últimas</a>
+        <a mat-tab-link *ngFor="let category of categories" (click)="[activeLink = category, navigateHome(category)]"
+          [active]="activeLink == category"> {{category.CDescription}} </a>
+      </nav>
+
+    </div>
+  </nav>
+</header>

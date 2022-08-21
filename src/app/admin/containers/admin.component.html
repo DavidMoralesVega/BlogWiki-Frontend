@@ -1,0 +1,286 @@
+<!-- <app-admin-sidenav></app-admin-sidenav> -->
+
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="z-toolbar">
+
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon fontIcon="menu" *ngIf="!snav.opened"></mat-icon>
+      <mat-icon fontIcon="menu_open" *ngIf="snav.opened"></mat-icon>
+
+    </button>
+
+    <h5 class="example-app-name">{{ User?.UFullName }}</h5>
+    <span class="example-spacer"></span>
+
+    <button mat-icon-button (click)="logout()">
+      <mat-icon>logout</mat-icon>
+    </button>
+
+  </mat-toolbar>
+
+  <mat-sidenav-container class="z-sidenav-container" autosize [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56">
+
+      <div class="z-block">
+
+        <h6 class="title mb-4">Opciones</h6>
+
+        <mat-nav-list [disableRipple]="true">
+          <a (click)="snav.toggle()" mat-list-item routerLinkActive="mat-list-item-active"
+            routerLink="{{ optionSidenav.Route }}" *ngFor="let optionSidenav of OptionSidenav">
+
+            <mat-icon>{{ optionSidenav.Icon }}</mat-icon>
+
+
+            <h6>{{ optionSidenav.Label }}</h6>
+
+          </a>
+
+          <footer class="footer-admin">
+            <p class="f-bold">
+            </p>
+            <p class="f-medium">
+              2022
+            </p>
+          </footer>
+        </mat-nav-list>
+
+      </div>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content class="scroll">
+      <main>
+        <router-outlet></router-outlet>
+
+
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+
+</div>
+
+
+
+<!--
+<mat-toolbar *ngIf="!sidenav.opened">
+  <button mat-icon-button class="example-icon" *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <z-icon [Icon]="'menu'"></z-icon>
+      <z-icon [Icon]="'menu'" *ngIf="!sidenav.opened"></z-icon>
+      <mat-icon *ngIf="sidenav.opened">
+        close
+      </mat-icon>
+    </button>
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-sidenav-container>
+
+    <mat-sidenav #sidenav="matSidenav">
+
+
+      <mat-list>
+
+        <div class="z-container-header">
+          <h6 class="z-label">
+            Zephyrus
+          </h6>
+        </div>
+
+        <div class="z-container-subheader">
+          <button matRipple class="z-btn-action how_to_reg">Empieza a leer</button>
+        </div>
+
+        <div class="z-container-subheader">
+          <h6 class="z-label">
+            Administrar
+          </h6>
+        </div>
+
+        <mat-list-item>
+          <z-icon [Icon]="'check_circle'" mat-list-icon></z-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+
+        <div class="z-container-subheader">
+          <h6 class="z-label">
+            Administrar
+          </h6>
+        </div>
+
+        <mat-list-item>
+          <z-icon [Icon]="'check_circle'" mat-list-icon></z-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+
+        <div class="z-container-subheader">
+          <h6 class="z-label">
+            Administrar
+          </h6>
+        </div>
+
+        <mat-list-item>
+          <z-icon [Icon]="'check_circle'" mat-list-icon></z-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+
+
+        <div class="z-container-subheader">
+          <h6 class="z-label">
+            Administrar
+          </h6>
+        </div>
+
+        <mat-list-item>
+          <z-icon [Icon]="'check_circle'" mat-list-icon></z-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <div class="z-container-subheader">
+          <h6 class="z-label">
+            Administrar
+          </h6>
+        </div>
+
+        <mat-list-item>
+          <z-icon [Icon]="'check_circle'" mat-list-icon></z-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div mat-line>Inbox</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+      </mat-list>
+
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="content">
+
+        <router-outlet></router-outlet>
+
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+-->
+<!-- <app-admin-footer></app-admin-footer> -->

@@ -1,0 +1,202 @@
+<!-- <section class="container">
+
+  <h2 class="mb-4 mt-2 title-section">Crear usuario</h2>
+
+  <form
+    [formGroup]="formAdd"
+    (ngSubmit)="addData()"
+    novalidate="novalidate"
+    autocomplete="off"
+  >
+    <div class="row">
+      <div class="z-card">
+
+        <mat-form-field class="col-12 mb-2" appearance="outline">
+          <mat-label>Nombre (s)</mat-label>
+          <input
+            matInput
+            formControlName="UName"
+            maxlength="256"
+            placeholder="Nombre(s)"
+          />
+          <mat-error
+            *ngIf="
+              formAdd.controls['UName'].invalid &&
+              (formAdd.controls['UName'].dirty ||
+                formAdd.controls['UName'].touched)
+            "
+          >
+            <span *ngIf="formAdd.controls['UName'].errors?.['required']">
+              <i class="fas fa-exclamation-circle mr-1"></i>
+              El nombre es requerido.
+            </span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-12 mb-2" appearance="outline">
+          <mat-label>Apellido paterno</mat-label>
+          <input
+            matInput
+            formControlName="UPaternal"
+            maxlength="256"
+            placeholder="Apellido paterno"
+          />
+
+          <mat-error
+            *ngIf="
+              formAdd.controls['UPaternal'].invalid &&
+              (formAdd.controls['UPaternal'].dirty ||
+                formAdd.controls['UPaternal'].touched)
+            "
+          >
+            <span *ngIf="formAdd.controls['UPaternal'].errors?.['required']">
+              El apellido paterno es requerido.
+            </span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-12 mb-2" appearance="outline">
+          <mat-label>Apellido materno</mat-label>
+          <input
+            matInput
+            formControlName="UMaternal"
+            maxlength="256"
+            placeholder="Apellido materno"
+          />
+          <mat-error
+            *ngIf="
+              formAdd.controls['UMaternal'].invalid &&
+              (formAdd.controls['UMaternal'].dirty ||
+                formAdd.controls['UMaternal'].touched)
+            "
+          >
+            <span *ngIf="formAdd.controls['UMaternal'].errors?.['required']">
+              <i class="fas fa-exclamation-circle mr-1"></i>
+              El apellido materno es requerido.
+            </span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-lg-8 mb-2" appearance="outline">
+          <mat-label>Cédula de identidad</mat-label>
+          <input
+            matInput
+            formControlName="UIdentity"
+            maxlength="256"
+            placeholder="Cédula de identidad"
+          />
+          <mat-error
+            *ngIf="
+              formAdd.controls['UIdentity'].invalid &&
+              (formAdd.controls['UIdentity'].dirty ||
+                formAdd.controls['UIdentity'].touched)
+            "
+          >
+            <span *ngIf="formAdd.controls['UIdentity'].errors?.['required']">
+              <i class="fas fa-exclamation-circle mr-1"></i>
+              La cédula de identidad es requerida.
+            </span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-lg-4 mb-2" appearance="outline">
+          <mat-label>Expedido en</mat-label>
+          <mat-select formControlName="UIdentityPlace">
+            <mat-option
+              *ngFor="let Departament of Departaments"
+              [value]="Departament.IdDepartament"
+            >
+              {{ Departament.Description }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="col-12 mb-2" appearance="outline">
+          <mat-label>Celular</mat-label>
+          <input
+            matInput
+            formControlName="UCellular"
+            maxlength="15"
+            placeholder="Celular"
+          />
+          <mat-error
+            *ngIf="
+              formAdd.controls['UCellular'].invalid &&
+              (formAdd.controls['UCellular'].dirty ||
+                formAdd.controls['UCellular'].touched)
+            "
+          >
+            <span *ngIf="formAdd.controls['UCellular'].errors?.['minlength']">
+              <i class="fas fa-exclamation-circle mr-1"></i>
+              El celular debe contener mínimo 8 caracteres.
+            </span>
+
+            <span *ngIf="formAdd.controls['UCellular'].errors?.['minlength']">
+              <i class="fas fa-exclamation-circle mr-1"></i>
+              El celular debe contener máximo 15 caracteres.
+            </span>
+
+            <span *ngIf="formAdd.controls['UCellular'].errors?.['required']">
+              <i class="fas fa-exclamation-circle mr-1"></i>
+              El celular es requerido.
+            </span>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="z-card mb-2">
+        <mat-form-field class="col-12 mb-2" appearance="outline">
+          <mat-label>Correo electrónico (s)</mat-label>
+          <input
+            matInput
+            formControlName="UEmail"
+            maxlength="256"
+            placeholder="Nombre(s)"
+          />
+          <mat-error
+            *ngIf="
+              formAdd.controls['UEmail'].invalid &&
+              (formAdd.controls['UEmail'].dirty ||
+                formAdd.controls['UEmail'].touched)
+            "
+          >
+            <span *ngIf="formAdd.controls['UEmail'].errors?.['required']">
+              <i class="fas fa-exclamation-circle mr-1"></i>
+              El correo electrónico es requerido.
+            </span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="col-12 mb-2" appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input
+            matInput
+            formControlName="UPassword"
+            maxlength="256"
+            placeholder="Contraseña"
+          />
+          <mat-error
+            *ngIf="
+              formAdd.controls['UPassword'].invalid &&
+              (formAdd.controls['UPassword'].dirty ||
+                formAdd.controls['UPassword'].touched)
+            "
+          >
+            <span *ngIf="formAdd.controls['UPassword'].errors?.['required']">
+              <i class="fas fa-exclamation-circle mr-1"></i>
+              El correo electrónico es requerido.
+            </span>
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+
+      <div class="col-12 text-end">
+        <button class="btn btn-reserve btn-primary btn-lg btn-block">
+          Crear
+        </button>
+
+      </div>
+    </div>
+  </form>
+</section> -->
