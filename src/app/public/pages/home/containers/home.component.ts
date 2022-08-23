@@ -41,8 +41,6 @@ export class HomeComponent implements OnInit {
 
     this.postService.findAll(pagination).subscribe((posts: Post[]) => {
       this.posts = posts;
-      console.log(posts);
-
     });
   }
   findAllPostsCarousel() {
@@ -55,25 +53,13 @@ export class HomeComponent implements OnInit {
     };
 
     this.postService.findAll(pagination).subscribe((posts: Post[]) => {
-
       this.postsCarousel = posts;
-      console.log(posts);
-
-
     });
   }
 
 
   navigateNews(post: Post) {
-
     this.router.navigate([`noticia/${post.IdPost}`]);
-    console.log(post);
-
   }
-
-
-
-
-
 
 }

@@ -1,7 +1,7 @@
 
 // POINT
 export const ZephyrusDomain = 'http://localhost:3000';
-// export const ZephyrusDomain = 'http://134.122.30.120:3000';
+  // export const ZephyrusDomain = 'https://blogwiki.herokuapp.com';
 
 
 export const APIZephyrus = {

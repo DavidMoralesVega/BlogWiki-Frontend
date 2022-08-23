@@ -42,8 +42,6 @@ export class CategoryComponent implements OnInit {
 
     this.categoryService.findAll(pagination)
       .subscribe((categories: Category[]) => {
-        console.log(categories);
-
         this.ListCategories = categories;
         this.dataSource = new MatTableDataSource(this.ListCategories);
 

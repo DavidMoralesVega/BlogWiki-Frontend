@@ -17,7 +17,7 @@ export class PostService extends BaseComponent {
     super();
   }
 
-  create(post: Post): Observable<any> {
+  create(post: any): Observable<any> {
     return this.httpClient.post<Post>(`${this.APIZPost}`, post);
   }
 
@@ -30,7 +30,7 @@ export class PostService extends BaseComponent {
     return this.httpClient.get<any>(`${this.APIZPost}/${Term}`);
   }
 
-  update(IdPost: string, post: Post): Observable<any> {
+  update(IdPost: string | undefined, post: Post): Observable<any> {
     return this.httpClient.patch<any>(`${this.APIZPost}/${IdPost}`, post);
   }
 

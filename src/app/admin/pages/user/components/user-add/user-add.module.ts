@@ -28,4 +28,4 @@ import { AuthService } from '../../../../../core/services/auth.service';
     AuthService
   ]
 })
-export class UserAddModule {}
+export class UserAddModule { }

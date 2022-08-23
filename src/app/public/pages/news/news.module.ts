@@ -15,7 +15,7 @@ import { ZFooterModule } from '../../components/z-footer/z-footer.module';
     CommonModule,
     NewsRoutingModule,
     ZNavbarModule,
-    ZFooterModule
+    ZFooterModule,
   ]
 })
 export class NewsModule { }

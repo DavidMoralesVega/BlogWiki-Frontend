@@ -31,17 +31,12 @@ export class CategoryComponent implements OnInit {
     this.categoryService.findOne(this.TermPost).subscribe((category: Category) => {
       this.posts = category.Post;
       this.category = category;
-      console.log(this.posts);
-      console.log(this.category);
 
     })
   }
 
   navigateNews(post: Post) {
-
     this.router.navigate([`noticia/${post.IdPost}`]);
-    console.log(post);
-
   }
 
 }

@@ -34,7 +34,6 @@ export class ProductoInterceptor implements HttpInterceptor {
       if (err.status === 401) {
         const dto: TokenDto = new TokenDto(token);
         return this.authService.checkAuthStatus().pipe(concatMap((data: any) => {
-          console.log('refreshing...');
           this.tokenService.setToken(data.token);
           intReq = this.addToken(request, data.token);
           return next.handle(intReq);

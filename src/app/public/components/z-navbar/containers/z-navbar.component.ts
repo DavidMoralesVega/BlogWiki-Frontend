@@ -32,8 +32,6 @@ export class ZNavbarComponent implements OnInit {
 
     this.categoryService.findAll(pagination).subscribe((categories: Category[]) => {
       this.categories = categories;
-      console.log(categories);
-
     });
   }
 

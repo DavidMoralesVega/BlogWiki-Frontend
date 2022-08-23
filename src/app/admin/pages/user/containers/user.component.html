@@ -1,4 +1,4 @@
-<!-- <div class="container-fluid">
+<div class="container-fluid">
   <div class="row">
     <div class="col-6">
       <h2 class="mb-3 title-section">Administrar usuarios</h2>
@@ -28,44 +28,41 @@
           <td mat-cell *matCellDef="let row; index as i">{{ i + 1 }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="UName">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre(s)</th>
-          <td mat-cell *matCellDef="let row">{{ row.UName }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="UPaternal">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido paterno</th>
-          <td mat-cell *matCellDef="let row">{{ row.UPaternal }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="UMaternal">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido materno</th>
-          <td mat-cell *matCellDef="let row">{{ row.UMaternal }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="UIdentity">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Cédula de identidad</th>
-          <td mat-cell *matCellDef="let row">{{ row.UIdentity }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="UIdentityPlace">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Expedido</th>
-          <td mat-cell *matCellDef="let row">{{ row.UIdentityPlace }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="UCellular">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Celular</th>
-          <td mat-cell *matCellDef="let row">{{ row.UCellular }}</td>
-        </ng-container>
-
         <ng-container matColumnDef="UEmail">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Correo electrónico</th>
           <td mat-cell *matCellDef="let row">{{ row.UEmail }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="URole">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Rol</th>
-          <td mat-cell *matCellDef="let row">{{ row.URole }}</td>
+        <ng-container matColumnDef="UFullName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Usuario</th>
+          <td mat-cell *matCellDef="let row">{{ row.UFullName }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="UIsActive">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>IsActive</th>
+          <td mat-cell *matCellDef="let row">
+            <span *ngIf="row.UIsActive" class="badge badge-success">Activo</span>
+            <span *ngIf="!row.UIsActive" class="badge badge-danger">Pasivo</span>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="URoles">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>URoles</th>
+          <td mat-cell *matCellDef="let row">{{ row.URoles | json }}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="Actions">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button color="primary">
+              <mat-icon>edit</mat-icon>
+            </button>
+
+            <button mat-icon-button color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
@@ -79,4 +76,4 @@
       </table>
     </div>
   </div>
-</div> -->
+</div>

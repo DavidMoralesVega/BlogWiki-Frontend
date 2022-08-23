@@ -32,10 +32,7 @@ export class NewsComponent implements OnInit {
     this.postService.findOne(this.TermPost).subscribe((post: Post) => {
       this.post = post;
       this.PostCategory = post.Category?.Post || [];
-      console.log(post);
-      console.log('ssss', this.PostCategory);
-
-    })
+    });
   }
 
 }

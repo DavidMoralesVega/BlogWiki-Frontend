@@ -5,6 +5,8 @@ import { UserAddComponent } from '../components/user-add/containers/user-add.com
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { AuthService } from '../../../../core/services/auth.service';
+import { Pagination } from '../../../../core/models/pagination.model';
 
 @Component({
   selector: 'app-user',
@@ -15,27 +17,38 @@ export class UserComponent implements OnInit {
 
   ListUsers: User[] = [];
 
-  displayedColumns: string[] = ['IdUser', 'UName', 'UPaternal', 'UMaternal', 'UIdentity', 'UIdentityPlace', 'UCellular', 'UEmail', 'URole'];
+  displayedColumns: string[] = ['IdUser', 'UEmail', 'UFullName', 'UIsActive', 'URoles', 'Actions'];
 
   dataSource!: MatTableDataSource<User>;
 
-  @ViewChild(MatPaginator, {static: false} ) paginator!: MatPaginator;
-  @ViewChild(MatSort, {static: false}) sort!: MatSort;
+  @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
+  @ViewChild(MatSort, { static: false }) sort!: MatSort;
 
-  constructor(public matDialog: MatDialog) {}
+  constructor(
+    private readonly matDialog: MatDialog,
+    private readonly authService: AuthService
+  ) { }
 
   ngOnInit(): void {
+    this.findAll();
+  }
 
-    // this.userService.getUsers().subscribe((result: any) => {
+  findAll() {
 
-    //     this.ListUsers = result;
-    //     this.dataSource = new MatTableDataSource(this.ListUsers);
+    const pagination: Pagination = {
+      limit: 100,
+      offset: 0
+    };
 
-    //     this.dataSource.paginator = this.paginator;
-    //     this.dataSource.sort = this.sort;
+    this.authService.findAll(pagination).subscribe((result: any) => {
 
-    // });
+      this.ListUsers = result;
+      this.dataSource = new MatTableDataSource(this.ListUsers);
 
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+
+    });
 
   }
 
@@ -49,11 +62,11 @@ export class UserComponent implements OnInit {
   }
 
   openUserAdd(): void {
-    this.matDialog.open(UserAddComponent, {
+    const dialogRef = this.matDialog.open(UserAddComponent, {
       width: '550px',
-      height: '95vh',
+      height: '55vh',
       maxWidth: '95%'
-      // data: { name: this.name, animal: this.animal },
     });
+    dialogRef.afterClosed().subscribe(() => this.findAll());
   }
 }

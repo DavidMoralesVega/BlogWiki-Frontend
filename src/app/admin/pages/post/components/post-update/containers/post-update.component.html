@@ -1,1 +1,94 @@
-<p>post-update works!</p>
+<section class="container-fluid">
+
+  <h2 class="mb-4 mt-2 title-section">Editar noticia</h2>
+
+  <form [formGroup]="formAdd" (ngSubmit)="addData()" novalidate="novalidate" autocomplete="off">
+    <div class="z-card">
+
+      <div class="row">
+        <div class="col-8">
+          <angular-editor formControlName="PDescription" [config]="editorConfig"></angular-editor>
+        </div>
+        <div class="col-4">
+
+          <mat-form-field class="col-12 mb-2" appearance="outline">
+            <mat-label>Título</mat-label>
+            <input matInput formControlName="PTitle" maxlength="256" placeholder="Título" />
+            <mat-error *ngIf="
+                  formAdd.controls['PTitle'].invalid &&
+                  (formAdd.controls['PTitle'].dirty ||
+                    formAdd.controls['PTitle'].touched)
+                ">
+              <span *ngIf="formAdd.controls['PTitle'].errors?.['required']">
+                <i class="fas fa-exclamation-circle mr-1"></i>
+                El título es requerido.
+              </span>
+            </mat-error>
+          </mat-form-field>
+
+
+          <mat-form-field class="col-lg-4 mb-2" appearance="outline">
+            <mat-label>Seleccionar categoria</mat-label>
+            <mat-select formControlName="IdCategory">
+              <mat-option *ngFor="let category of ListCategories" [value]="category.IdCategory">
+                {{ category.CDescription }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+
+          <mat-form-field class="col-12 mb-2" appearance="outline">
+            <mat-label>Resumen</mat-label>
+            <textarea formControlName="PSummary" matInput cdkTextareaAutosize cdkAutosizeMinRows="8"
+              cdkAutosizeMaxRows="8"></textarea>
+              <mat-error *ngIf="
+                formAdd.controls['PSummary'].invalid &&
+                (formAdd.controls['PSummary'].dirty ||
+                  formAdd.controls['PSummary'].touched)
+              ">
+              <span *ngIf="formAdd.controls['PSummary'].errors?.['required']">
+                <i class="fas fa-exclamation-circle mr-1"></i>
+                El resumen es requerido.
+              </span>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="col-12 mb-2" appearance="outline">
+            <mat-label>Lugar</mat-label>
+            <input matInput formControlName="PPlace" maxlength="256" placeholder="Lugar" />
+            <mat-error *ngIf="
+                  formAdd.controls['PPlace'].invalid &&
+                  (formAdd.controls['PPlace'].dirty ||
+                    formAdd.controls['PPlace'].touched)
+                ">
+              <span *ngIf="formAdd.controls['PPlace'].errors?.['required']">
+                <i class="fas fa-exclamation-circle mr-1"></i>
+                El lugar es requerido.
+              </span>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="col-12 mb-2" appearance="outline">
+            <mat-label>Fecha</mat-label>
+            <input formControlName="PRegisterDateTime" matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+
+          <div class="col-12 text-end mt-5">
+            <button class="btn btn-reserve btn-primary btn-lg btn-block"
+              [disabled]="this.formAdd.invalid">
+              Crear
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </form>
+</section>

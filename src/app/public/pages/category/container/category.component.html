@@ -48,10 +48,8 @@
                 </div>
 
                 <div class="col-lg-6 ml-xl-4 mb-4">
-                  <!-- Grid row -->
                   <div class="row">
 
-                    <!-- Grid column -->
                     <div class="col-xl-2 col-md-6 text-start">
                       <p class="orange-text font-small font-weight-bold mb-1 spacing">
                         <a [routerLink]="['/categoria', post.Category?.CSlug]">
@@ -59,29 +57,22 @@
                         </a>
                       </p>
                     </div>
-                    <!-- Grid column -->
 
-                    <!-- Grid column -->
                     <div class="col-xl-5 col-md-6 text-end">
                       <p class="font-small grey-text">
                         <strong>{{ post.PPlace | uppercase }}</strong>
                       </p>
                     </div>
-                    <!-- Grid column -->
 
                   </div>
-                  <!-- Grid row -->
 
                   <div class="row">
-                    <!-- Grid column -->
                     <div class="col-xl-12 col-md-12 text-start">
                       <p class="font-small grey-text">
-                        <em> {{ post.PRegisterDateTime }}</em>
+                        <em> {{ post.PRegisterDateTime | date }}</em>
                       </p>
                     </div>
-                    <!-- Grid column -->
                   </div>
-                  <!-- Grid row -->
 
                   <h4 class="mb-3 dark-grey-text mt-0">
                     <strong>
@@ -90,14 +81,11 @@
                   </h4>
                   <p class="dark-grey-text">{{ post.PSummary }}</p>
 
-                  <!-- Deep-orange -->
                   <button (click)="navigateNews(post)" type="button" class="btn btn-deep-orange btn-rounded btn-sm">Leer
                     más</button>
                 </div>
-                <!-- Grid column -->
 
               </div>
-              <!-- Grid row -->
 
               <hr class="mb-5">
             </div>

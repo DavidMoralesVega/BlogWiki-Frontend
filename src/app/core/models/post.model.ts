@@ -6,11 +6,12 @@ export class Post {
   public PSummary: string;
   public PDescription: string;
   public PPlace: string;
-  public PPhoto: string;
+  public PPhoto?: string;
   public PRegisterDateTime: string;
-  public PSlug: string;
+  public PSlug?: string;
   public User?: User;
   public Category?: Category;
+  public IdCategory?: string;
 
   constructor(object: PostInterface) {
     this.IdPost = (object && object.IdPost) || '';
@@ -23,6 +24,7 @@ export class Post {
     this.PSlug = (object && object.PSlug) || '';
     this.User = (object && object.User) || undefined;
     this.Category = (object && object.Category) || undefined;
+    this.IdCategory = (object && object.IdCategory) || '';
   }
 }
 
@@ -32,9 +34,15 @@ interface PostInterface {
   PSummary: string;
   PDescription: string;
   PPlace: string;
-  PPhoto: string;
+  PPhoto?: string;
   PRegisterDateTime: string;
-  PSlug: string;
+  PSlug?: string;
   User?: User;
   Category?: Category;
+  IdCategory?: string;
+}
+
+
+export interface DialogPost {
+  post: Post;
 }

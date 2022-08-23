@@ -50,7 +50,6 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
   ngOnInit(): void {
-    console.log(this.tokenService.getToken());
     this.authService.checkAuthStatus()
       .subscribe((user: User) => {
         this.User = user;
