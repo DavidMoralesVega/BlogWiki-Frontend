@@ -1,27 +1,68 @@
-# BlogWikiFrontend
+<h1 align="center">Angular - API REST BLOG</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.
+<p align="center">
+  <img src="https://angular.io/assets/images/logos/angular/shield-large.svg" alt="angular-logo" width="150px" height="150px"/>
+  <br>
+  <i>Angular is a development platform for building mobile and desktop web applications
+    <br> using Typescript/JavaScript and other languages.</i>
+  <br>
+</p>
 
-## Development server
+<p align="center">
+  <a href="https://www.angular.io"><strong>www.angular.io</strong></a>
+  <br>
+</p>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<hr>
 
-## Build
+## Documentation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Get started with Angular, learn the fundamentals and explore advanced topics on our documentation website.
 
-## Running unit tests
+- [Getting Started][quickstart]
+- [Architecture][architecture]
+- [Components and Templates][componentstemplates]
+- [Forms][forms]
+- [API][api]
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Advanced
 
-## Running end-to-end tests
+- [Angular Elements][angularelements]
+- [Server Side Rendering][ssr]
+- [Schematics][schematics]
+- [Lazy Loading][lazyloading]
+- [Animations][animations]
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Development Setup
 
-## Further help
+### Prerequisites
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Install [Node.js] which includes [Node Package Manager][npm]
+
+### Setting Up a Project
+
+Install the Angular CLI globally:
+
+```
+npm install -g @angular/cli
+```
+
+
+Run the application:
+
+```
+cd [PROJECT NAME]
+ng serve
+```
+
+
+## Quickstart
+
+[Get started in 5 minutes][quickstart].
+
+## Ecosystem
+
+- [Angular Command Line (CLI)][cli]
+- [Angular Material][angularmaterial]

@@ -12,7 +12,9 @@
           <img src="{{postC.PPhoto}}" class="d-block w-100" alt="Canyon at Nigh" />
           <div class="mask mask-custom carousel-caption">
             <div class="d-flex flex-column justify-content-center align-items-center h-100 pt-5 mt-5">
-              <h5 class="text-white mb-0 mt-5">{{ postC.PTitle }}</h5>
+              <h5 class="text-white mb-0 mt-5">
+                <a [routerLink]="['/noticia', postC.IdPost]" class="text-white">{{ postC.PTitle }}</a>
+              </h5>
               <br>
               <p class="text-white mb-0">{{ postC.PPlace }}, {{ postC.PRegisterDateTime | date }}</p>
             </div>
